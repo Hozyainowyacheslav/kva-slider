@@ -23,7 +23,7 @@ Use the following pattern:
     <div class="kva-widget"
          data-pagination 
          data-miniature
-         data-carusel 
+         data-carousel 
          data-autoplay
          data-interval="3000"
          data-start="2"
@@ -56,7 +56,7 @@ After loading the page, this template will be like this:
      data-pagination="" 
      data-miniature="" 
      data-interval="3000" 
-     data-carusel="" 
+     data-carousel="" 
      data-autoplay="" 
      data-start="2">
     <div class="kva-slider">
@@ -141,7 +141,7 @@ Attribute          | Description                                              | 
 `data-interval`    | The number of milliseconds before showing the next slide | _integer_ | 4000
 `data-start`       | Slide number (starting at 0) to be shown first           | _integer_ | 0
 `data-autoplay`    | Automatic slide change                                   | _boolean_ | false
-`data-carusel`     | Carousel mode                                            | _boolean_ | false
+`data-carousel`    | Carousel mode                                            | _boolean_ | false
 `data-pagination`  | Adds slide indicators                                    | _boolean_ | false
 `data-miniature`   | Adds slide thumbnails                                    | _boolean_ | false
 
