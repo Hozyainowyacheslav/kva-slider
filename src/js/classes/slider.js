@@ -2,7 +2,7 @@ import { createElem, getAttrBoolean } from '../functions';
 
 const ATTR_PAGINATION = 'data-pagination';
 const ATTR_MINIATURE = 'data-miniature';
-const ATTR_CARUSEL = 'data-carusel';
+const ATTR_CARoUSEL = 'data-carousel';
 const ATTR_AUTOPLAY = 'data-autoplay';
 const ATTR_START = 'data-start';
 const ATTR_INTERVAL = 'data-interval';
@@ -36,7 +36,7 @@ class Slider {
   run() {
     if (!this.elements) return;
     const thet = this;
-    const { autoplay, carusel, startPosition } = this.options;
+    const { autoplay, carousel, startPosition } = this.options;
     const { slider, sliderItems, btnNext, btnPrev, paginationItems, miniatureItems } = this.elements;
 
     this.iterator.init(sliderItems.length, 0, startPosition);
@@ -51,17 +51,17 @@ class Slider {
     slider.addEventListener('swiped-right', this.prevSlide);
 
     this._update();
-    if (carusel && autoplay) this.startCarusel();
+    if (carousel && autoplay) this.startCarousel();
   }
 
 
 
   nextSlide() {
-    const { carusel } = this.options;
+    const { carousel } = this.options;
     const iterator = this.iterator;
     const { done } = iterator.next();
 
-    if (!done && carusel) {
+    if (!done && carousel) {
       iterator.begin();
       this._updateSlider(true);
       this.nextSlide()
@@ -71,11 +71,11 @@ class Slider {
   }
 
   prevSlide() {
-    const { carusel } = this.options;
+    const { carousel } = this.options;
     const iterator = this.iterator;
     const { done } = iterator.prev();
 
-    if (!done && carusel) {
+    if (!done && carousel) {
       iterator.end();
       this._updateSlider(true);
       this.prevSlide()
@@ -90,11 +90,11 @@ class Slider {
   }
 
   _update() {
-    const { carusel, hasPagination, hasMiniature } = this.options;
+    const { carousel, hasPagination, hasMiniature } = this.options;
     this._updateSlider();
     if (hasPagination) this._updatePagination();
     if (hasMiniature) this._updateMiniaturte();
-    if (!carusel) this._updateButtons();
+    if (!carousel) this._updateButtons();
   }
 
   _updateSlider(fast) {
@@ -138,15 +138,15 @@ class Slider {
     if (pos === last) btnNext.classList.add( CLASS_HIDDEN );
   }
 
-  startCarusel() {
+  startCarousel() {
     const { interval } = this.options;
     const { widget, slider } = this.elements;
     let idClear = setInterval(this.nextSlide, interval);
-    widget.addEventListener('click', stopCarusel, { once: true });
-    slider.addEventListener('swiped-left', stopCarusel, { once: true });
-    slider.addEventListener('swiped-right', stopCarusel, { once: true });
+    widget.addEventListener('click', stopCarousel, { once: true });
+    slider.addEventListener('swiped-left', stopCarousel, { once: true });
+    slider.addEventListener('swiped-right', stopCarousel, { once: true });
 
-    function stopCarusel() {
+    function stopCarousel() {
       if ( idClear ) {
         clearInterval(idClear);
         idClear = null;
@@ -156,14 +156,14 @@ class Slider {
 
   _build(el, options) {
     const widget = el;
-    const { hasPagination, hasMiniature, carusel } = options;
+    const { hasPagination, hasMiniature, carousel } = options;
     const ul = widget.querySelector('ul');
     const li = ul ? ul.querySelectorAll('li') : [];
     if (!ul || li.length === 0) return null;
 
     const sliderList = ul.cloneNode(true);
     sliderList.classList.add(CLASS_LIST);
-    if (carusel) {
+    if (carousel) {
       sliderList.append(li[0].cloneNode(true));
     }
 
@@ -277,7 +277,7 @@ class Slider {
       hasButtons: false,
       hasPagination: false,
       hasMiniature: false,
-      carusel: false,
+      carousel: false,
       autoplay: false,
       interval: 4000,
       startPosition: 0,
@@ -299,7 +299,7 @@ class Slider {
     return {
       hasPagination: getAttrBoolean( el, ATTR_PAGINATION ),
       hasMiniature: getAttrBoolean( el, ATTR_MINIATURE ),
-      carusel: getAttrBoolean( el, ATTR_CARUSEL ),
+      carousel: getAttrBoolean( el, ATTR_CARoUSEL ),
       autoplay: getAttrBoolean( el, ATTR_AUTOPLAY),
       startPosition: +el.getAttribute( ATTR_START ),
       interval: +el.getAttribute( ATTR_INTERVAL ),
