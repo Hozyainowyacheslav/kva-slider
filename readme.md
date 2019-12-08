@@ -1,9 +1,6 @@
 # kva-slider
 
-
-A **0.7k** script that adds `swiped-left`, `swiped-right`, `swiped-up` and `swiped-down` events to the DOM using [CustomEvent](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent) and pure JS. Based on the StackOverflow thread [Detect a finger swipe through JavaScript on the iPhone and Android](https://stackoverflow.com/questions/2264072/detect-a-finger-swipe-through-javascript-on-the-iphone-and-android)
-
-
+Adaptive Slider Carousel
 
 ## Install
 
