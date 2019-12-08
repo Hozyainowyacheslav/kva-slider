@@ -9,7 +9,7 @@ Put the required stylesheet at the top of your markup:
 ```html
 <link rel="stylesheet" href="dist/assets/css/kva-slider.css" />
 ```
-Put the script at the bottom of your markup right after jQuery:
+Put the script at the bottom of your markup:
 
 ```html
 <script src="dist/assets/js/kva-slider.js"></script>
