@@ -30,22 +30,22 @@ Use the following pattern:
     >
       <ul>
         <li>
-          <img class="img-cover" src="" alt="">
+          <img class="img-cover" src="image-1.jpg" alt="">
           <div class="slide-content full-absolute">
             <h2>Image 1</h2>
           </div>
         </li>
         <li>
-          <img class="img-cover" src="" alt="">
+          <img class="img-cover" src="image-2.jpg" alt="">
           <div class="slide-content full-absolute">
-              <h2>Image 2</h2>
-            </div>
+            <h2>Image 2</h2>
+          </div>
         </li>
         <li>
-          <img class="img-cover" src="" alt="">
+          <img class="img-cover" src="image-3.jpg" alt="">
           <div class="slide-content full-absolute">
-              <h2>Image 3</h2>
-            </div>
+            <h2>Image 3</h2>
+          </div>
         </li>
       </ul>
     </div>
@@ -71,20 +71,20 @@ After loading the page, this template will be like this:
           <li class="kva-slider-item" style="width: 25%;">
             <img class="img-cover"  src="image-2.jpg" alt="">
             <div class="slide-content full-absolute">
-                <h2>Image 2</h2>
-              </div>
+              <h2>Image 2</h2>
+            </div>
           </li>
           <li class="kva-slider-item" style="width: 25%;">
             <img class="img-cover" src="image-3.jpg" alt="">
             <div class="slide-content full-absolute">
-                <h2>Image 3</h2>
-              </div>
+              <h2>Image 3</h2>
+            </div>
           </li>
           <li class="kva-slider-item" style="width: 25%;">
-              <img class="img-cover" src="image-1.jpg" alt="">
-              <div class="slide-content full-absolute">
-                <h2>Image 1</h2>
-              </div>
+            <img class="img-cover" src="image-1.jpg" alt="">
+            <div class="slide-content full-absolute">
+              <h2>Image 1</h2>
+            </div>
           </li>
         </ul>
         <button class="kva-btn-prev">
