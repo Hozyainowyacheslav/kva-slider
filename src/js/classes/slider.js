@@ -51,7 +51,7 @@ class Slider {
     slider.addEventListener('swiped-right', this.prevSlide);
 
     this._update();
-    if (carousel && autoplay) this.startCarousel();
+    if (carousel && autoplay) this._startCarousel();
   }
 
 
@@ -138,7 +138,7 @@ class Slider {
     if (pos === last) btnNext.classList.add( CLASS_HIDDEN );
   }
 
-  startCarousel() {
+  _startCarousel() {
     const { interval } = this.options;
     const { widget, slider } = this.elements;
     let idClear = setInterval(this.nextSlide, interval);
