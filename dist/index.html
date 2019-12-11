@@ -3,29 +3,38 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Page Title</title>
+  <title>Slider Carousel</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+      .header {
+        padding: 10% 20px;
+      }
+      .wrap {
+        padding: 20px;
+        margin: auto;
+      }
+      @media screen and ( min-width:800px ) {
+        .wrap {
+          width: 60%;
+        }
+      }
   
+    </style>
 <link href="assets/css/kva-slider.css" rel="stylesheet"></head>
 <body>
-  <style>
-    .wrap {
-      padding: 20px;
-      margin: auto;
-    }
-    @media screen and ( min-width:800px ) {
-      .wrap {
-        width: 60%;
-      }
-    }
-
-  </style>
+  <header class="header">
+    <h1 class="title">KVA-SLIDER</h1>
+    <p></p>
+    <a href="download.kva-slider.zip">Download</a>
+  </header>
+  
   <div class="wrap">
+    
     <div class="kva-widget"
          data-pagination
          data-miniature
          data-interval="3000"
-         data-carusel
+         data-carousel
          data-autoplay
          data-start="2"
     >

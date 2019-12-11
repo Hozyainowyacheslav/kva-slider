@@ -1,4 +1,4 @@
-function swipe() {
+function swipeEvents() {
 
   // Pure JavaScript swipe events
   // https://github.com/john-doherty/swiped-events
@@ -101,4 +101,4 @@ function swipe() {
   }
 }
 
-export default swipe;
+export default swipeEvents;

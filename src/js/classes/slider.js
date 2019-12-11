@@ -10,7 +10,6 @@ const CLASS_SLIDER = 'kva-slider';
 const CLASS_SLIDER_ITEM = 'kva-slider-item';
 const CLASS_DISPLAY = 'kva-slider-display';
 const CLASS_LIST = 'kva-slider-list';
-const CLASS_ITEM = 'kva-slider-item';
 const CLASS_BTN_PREV = 'kva-btn-prev';
 const CLASS_BTN_NEXT = 'kva-btn-next';
 const CLASS_PAGINATION = 'kva-pagination';
@@ -22,6 +21,7 @@ const CLASS_MINIATURE_BUTTON = 'kva-miniature-btn';
 const CLASS_NO_TRANSITION = 'no-transition';
 const CLASS_SR_ONLY = 'sr-only';
 const CLASS_HIDDEN = 'hidden';
+const CLASS_ACTIVE = 'active';
 
 class Slider {
   constructor(el, options = null) {
@@ -35,7 +35,7 @@ class Slider {
 
   run() {
     if (!this.elements) return;
-    const thet = this;
+
     const { autoplay, carousel, startPosition } = this.options;
     const { slider, sliderItems, btnNext, btnPrev, paginationItems, miniatureItems } = this.elements;
 
@@ -113,9 +113,9 @@ class Slider {
     const pos = this.iterator.get();
     const editpos = pos === paginationItems.length ? 0 : pos
     for (let i = 0; i < paginationItems.length; i++) {
-      paginationItems[i].classList.remove('active');
+      paginationItems[i].classList.remove( CLASS_ACTIVE );
     }
-    paginationItems[editpos].classList.add('active');
+    paginationItems[editpos].classList.add( CLASS_ACTIVE );
   }
 
   _updateMiniaturte() {
@@ -123,9 +123,9 @@ class Slider {
     const pos = this.iterator.get();
     const editpos = pos === miniatureItems.length ? 0 : pos
     for (let i = 0; i < miniatureItems.length; i++) {
-      miniatureItems[i].classList.remove('active');
+      miniatureItems[i].classList.remove( CLASS_ACTIVE );
     }
-    miniatureItems[editpos].classList.add('active');
+    miniatureItems[editpos].classList.add( CLASS_ACTIVE );
   }
 
   _updateButtons() {
@@ -158,13 +158,13 @@ class Slider {
     const widget = el;
     const { hasPagination, hasMiniature, carousel } = options;
     const ul = widget.querySelector('ul');
-    const li = ul ? ul.querySelectorAll('li') : [];
-    if (!ul || li.length === 0) return null;
+    const nodesLi = ul ? ul.querySelectorAll('li') : [];
+    if (!ul || nodesLi.length === 0) return null;
 
     const sliderList = ul.cloneNode(true);
     sliderList.classList.add(CLASS_LIST);
     if (carousel) {
-      sliderList.append(li[0].cloneNode(true));
+      sliderList.append(nodesLi[0].cloneNode(true));
     }
 
     const sliderDisplay = createElem({
@@ -208,14 +208,14 @@ class Slider {
 
     let paginationItems = [];
     if (hasPagination) {
-      const pagination = this._createListButtons( li, this._createHtmlPaginationItem, CLASS_PAGINATION );
+      const pagination = this._createListButtons( nodesLi, this._createHtmlPaginationItem, CLASS_PAGINATION );
       paginationItems = [...pagination.querySelectorAll('li')];
       sliderDisplay.append(pagination);
     }
 
     let miniatureItems = [];
     if (hasMiniature) {
-      const miniature = this._createListButtons( li, this._createHtmlMiniatureItem, CLASS_MINIATURE );
+      const miniature = this._createListButtons( nodesLi, this._createHtmlMiniatureItem, CLASS_MINIATURE );
       miniatureItems = [...miniature.querySelectorAll('li')];
       widget.append( miniature );
     }
