@@ -96,7 +96,7 @@ let conf = {
     // Register plugins
     plugins: [
         new MiniCssExtractPlugin({
-            filename: `${PATHS.assets}css/kva-slider.css`,
+            filename: `${PATHS.assets}css/[name].css`,
             publicPath: '../',
         }),
         new HtmlWebpackPlugin({
