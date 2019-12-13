@@ -139,28 +139,23 @@
   transition: all 0s;
 }
 
-.slide-content {
-  color: #fff;
-  padding: 32px 42px;
-  box-sizing: border-box;
-}
-
-.img-cover {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.full-absolute {
+.kva-slide-text {
   position: absolute;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
   margin: auto;
+  padding: 32px 42px;
+  color: #fff;
+  box-sizing: border-box;
 }
 
-
+.kva-slide-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 .sr-only {
   position: absolute;
