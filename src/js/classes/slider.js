@@ -141,7 +141,12 @@ class Slider {
   _startCarousel() {
     const { interval } = this.options;
     const { widget, slider } = this.elements;
-    let idClear = setInterval(this.nextSlide, interval);
+    const fn = this.nextSlide;
+
+    let idClear = setTimeout( function step() {
+      fn();
+      idClear = setTimeout(step, interval);
+    }, interval);
     widget.addEventListener('click', stopCarousel, { once: true });
     slider.addEventListener('swiped-left', stopCarousel, { once: true });
     slider.addEventListener('swiped-right', stopCarousel, { once: true });
